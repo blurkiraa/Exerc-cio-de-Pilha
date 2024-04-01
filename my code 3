@@ -1,0 +1,57 @@
+//Codigo pra repetir
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Qual o saldo da conta");
+        double saldo = Convert.ToDouble(Console.ReadLine());
+
+        while (true)
+        {
+            Console.WriteLine("Digite o valor do saque");
+            double valor = Convert.ToDouble(Console.ReadLine());
+
+            if (saldo >= valor)
+            {
+                saldo -= valor;
+                Console.WriteLine($"Saque do {valor} realizado com sucesso");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Saldo insuficiente, por favor tente novamente");
+              
+            }
+        }
+          
+    }
+
+}
+
+//Codigo sem a repetição
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Qual o saldo da conta");
+        double saldo = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Digite o valor do saque");
+        double valor = Convert.ToDouble(Console.ReadLine());
+
+        if (saldo > valor)
+        {
+            saldo -= valor;
+            Console.WriteLine($"Saque do {valor} realizado com sucesso");
+        }
+        else
+        {
+            Console.WriteLine("Saldo insuficiente, por favor tente novamente");
+        }
+    }
