@@ -1,0 +1,96 @@
+using System.Collections.Generic;
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Stack<string> pratos = new Stack<string>();
+
+        while (true)
+        {
+            Console.WriteLine("Escolha uma opção");
+            Console.WriteLine("1- Empilhar pratos");
+            Console.WriteLine("2- Limpar um prato");
+            Console.WriteLine("3- Limpar uma quantidade de prato");
+            Console.WriteLine("4- Saber o total de pratos na pia");
+            Console.WriteLine("5- Saber se a pilha está vázia");
+            Console.WriteLine("6- Encerrar");
+
+            int opcao;
+            if (!int.TryParse(Console.ReadLine(), out opcao))
+            {
+                Console.WriteLine("Opção inválida");
+                continue;
+            }
+
+            else if (opcao == 1)
+            {
+                Console.WriteLine("Digite o número de pratos que quer empilhar");
+                string prato = Console.ReadLine();
+                pratos.Push(prato);
+                Console.WriteLine("Praros empilhados");
+            }
+            else if (opcao == 2)
+            {
+                if (pratos.Count == 0)
+                {
+                    Console.WriteLine("Não há pratos para limpar");
+                }
+                else
+                {
+                    string pratoLimpo = pratos.Pop();
+                    Console.WriteLine($"Prato {pratoLimpo} limpo");
+                }
+            }
+            else if (opcao == 3)
+            {
+                Console.WriteLine("Quantos pratos quer limpar?");
+                int quantidadeprato;
+                if (int.TryParse(Console.ReadLine(), out quantidadeprato))
+                {
+                    Console.WriteLine("Quantidade inválida. Digite novamente");
+                    continue;
+                }
+                if (quantidadeprato > pratos.Count)
+                {
+                    Console.WriteLine("A quantidade de pratos para limpar é maior do que tem na pilha");
+
+                }
+                else
+                {
+                    for (int i = 0; i < quantidadeprato; i++)
+                    {
+                        string pratolimpo = pratos.Pop();
+                        Console.WriteLine($"Prato {pratolimpo} limpo ");
+                    }
+                }
+            }
+            else if (opcao == 4)
+            {
+                Console.WriteLine($"Quantidade de pratos na pilha é: {pratos.Count}");
+            }
+            else if (opcao == 5)
+            {
+                if (pratos.Count == 0)
+                {
+                    Console.WriteLine("A pilha está vazia");
+                }
+                else
+                {
+                    Console.WriteLine("A pilha não está vazia");
+                }
+            }
+            else if (opcao == 6)
+            {
+                if (pratos.Count == 0)
+                {
+                    Console.WriteLine("Encerrando programa");
+                    break;
+                }
+
+            }
+        }
+    }
+}
+
