@@ -1,0 +1,25 @@
+////Faça um programa que:
+//-Leia a cotação do dólar
+//- Leia um valor em dólares
+//- Converta esse valor para Real
+//- Mostre o resultado 
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Informe a cotação do dolar");
+        double cotacaodolar = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Qual o valor em dólar");
+        double valordolar = Convert.ToDouble(Console.ReadLine());
+
+        double valordoreal = valordolar * cotacaodolar;
+
+        Console.WriteLine($"O valor em reais é: {valordoreal}");
+    }
+
+}
+
