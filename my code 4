@@ -22,3 +22,29 @@ class Program
         }
     }
 } 
+
+mesmo ex só que com vetor
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] clientes = new string[4]; // Vetor para armazenar os clientes
+
+        // Adicionando clientes ao vetor
+        clientes[0] = "Kaique";
+        clientes[1] = "Akira";
+        clientes[2] = "Pedro";
+        clientes[3] = "Antonio";
+
+        Console.WriteLine($"O próximo a ser atendido é: {clientes[0]}");
+
+        // Iterando pelo vetor para atender os clientes
+        for (int i = 0; i < clientes.Length; i++)
+        {
+            Console.WriteLine(clientes[i]);
+        }
+    }
+}
