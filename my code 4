@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+
+
+class Program
+{
+    static void Main()
+    {
+        Queue<string> cliente = new Queue<string>();
+
+        cliente.Enqueue("Kaique");
+        cliente.Enqueue("Akira");
+        cliente.Enqueue("Pedro");
+        cliente.Enqueue("Antonio");
+
+        Console.WriteLine($"O próximo a ser atendido é: {cliente.Peek()}");
+
+       for (int i = cliente.Count; i > 0; i--) //o primeiro começa em 4 devido ao tamanho da minha fila, depois sempre que i for maior que zero ele tem que diminuir de um em um
+        {
+
+            Console.WriteLine( cliente.Dequeue() );
+        }
+    }
+} 
