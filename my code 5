@@ -1,0 +1,14 @@
+//Faça um programa para calcular o estoque médio de uma peça, sendo que: ESTOQUE MÉDIO = (QUANTIDADE_MÍNIMA + QUANTIDADE_MÁXIMA) / 2.
+
+Console.WriteLine("Insira a quantidade mínima");
+string quantidade = Console.ReadLine();
+float quantidademinima = float.Parse(quantidade);
+
+Console.WriteLine("Insira a quantidade máxima");
+string quantidade2  = Console.ReadLine();
+float quantidademaxima = float.Parse(quantidade2);
+
+float estoque = (quantidademinima + quantidademaxima) / 2;
+
+Console.WriteLine("A quantidade média do estoque é de:");
+Console.WriteLine(estoque);
