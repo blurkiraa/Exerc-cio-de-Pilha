@@ -1,0 +1,131 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+
+//Vou criar uma pilha com raças de cachorros
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Pilha pilha = null;
+
+        while (true) // isso é um loop infinito
+        {
+            Console.WriteLine("Escolha uma das opções abaixo:");
+            Console.WriteLine("1- Criar uma pilha");
+            Console.WriteLine("2- Adicionar um item na pilha");
+            Console.WriteLine("3- Remover um item da pilha");
+            Console.WriteLine("4- Ver quem é o primeiro da pilha");
+            Console.WriteLine("5- Ver os nomes na pilha");
+            Console.WriteLine("6- Encerrar");
+
+            int opcao;
+            {
+                if (!int.TryParse(Console.ReadLine(), out opcao))
+                {
+                    Console.WriteLine("O número digitado está incorreto, tente novamente.");
+                    continue; 
+                }
+                else if (opcao == 1)
+                {
+                    pilha = new Pilha();
+                    Console.WriteLine("Pilha criada com sucesso");
+                }
+                else if (opcao == 2)
+                {
+                    if (pilha == null)
+                    {
+                        Console.WriteLine("Crie uma pilha primeiro");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Qual raça deseja adicionar?");
+                        string raca = Console.ReadLine();
+                        pilha.Adicionar(raca);
+                    }
+                }
+                else if (opcao == 3)
+                {
+                    if (pilha == null)
+                    {
+                        Console.WriteLine("Crie uma pilha primeiro");
+                    }
+                    else
+                    {
+                        string removido = pilha.Remover();
+                        Console.WriteLine($"Item removido da pilha: {removido}");
+                    }
+                }
+                else if (opcao == 4)
+                {
+                    if (pilha == null)
+                    {
+                        Console.WriteLine("Crie uma pilha primeiro");
+                    }
+                    else
+                    {
+                        string primeiro = pilha.verprimeiro();
+                        Console.WriteLine($"O primeiro da pilha é {primeiro}");
+                    }
+                }
+                else if (opcao == 5)
+                {
+                    if (pilha == null)
+                    {
+                        Console.WriteLine("Crie uma pilha primeiro");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Os nomes na pilha são:");
+                        pilha.Verraca();
+                    }
+                }
+                else if (opcao == 6)
+                {
+                    if (pilha == null)
+                    {
+                        Console.WriteLine("Encerrando programa");
+                        break;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    class Pilha
+    {
+        private Stack<string> racas;
+
+        public Pilha() 
+        {
+            racas = new Stack<string>(); 
+        }
+
+        public void Adicionar(string nome)
+        {
+            racas.Push(nome);
+        }
+
+        public string Remover()
+        {
+            return racas.Pop();
+        }
+
+        public string verprimeiro()
+        {
+            return racas.Peek();
+        }
+
+        public void Verraca()
+        {
+            foreach (string nome in racas) 
+            {
+                Console.WriteLine(nome);
+            }
+        }
+    }
+}
+
